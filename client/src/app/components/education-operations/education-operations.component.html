@@ -1,0 +1,55 @@
+<div class="container-fluid body-div">
+  <div class="volume-div">
+    <i class="fas fa-volume-up"></i>
+    <i style="display: none" class="fas fa-volume-mute"></i>
+  </div>
+  <img class="dashboard-background" src="{{educationBackground}}">
+  <div style="text-align: center;">
+    <label class="operation mt-5"><b>5 + 3 = ?</b></label>
+  </div>
+  <div class="row mt-4" style="margin: 0 !important;">
+    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12"></div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+      <div style="float: left">
+        <div class="dot" style="float: left !important;" [ngStyle]="{'line-height':appleCount<4 ? '140px' : 'inherit' }">
+          <div class="fruits">
+            <img src="">
+            <img class="apple" src="{{apple}}"*ngFor="let i of Arr(appleCount);">
+          </div>
+
+          <img class="plate" src="{{plate}}">
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12"></div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+      <div class="dot" [ngStyle]="{'line-height':appleCount2<4 ? '140px' : 'inherit' }">
+        <div class="fruits2">
+          <img src="">
+          <img class="apple2" src="{{apple}}">
+          <img class="apple2" src="{{apple}}">
+          <img class="apple2" src="{{apple}}">
+        </div>
+      </div>
+      <div class="dot2">
+        <img class="plate sec-plate" src="{{plate}}">
+      </div>
+    </div>
+    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12"></div>
+  </div>
+  <div class="row" style="margin: 0 !important;">
+    <div class="dot">
+      <img class="plate" src="{{plate}}">
+    </div>
+    <!--<div class="dot"  ondragover="allowDrop(event)" ondrop="handleDrop()"ondragenter="colorize(this)"
+         ondragleave="uncolorize(this)"></div>-->
+  </div>
+  <div class="navigator">
+    <span>
+      <i class="far fa-hand-point-left"></i>
+    </span>
+    <span style="float: right">
+      <i class="far fa-hand-point-right"></i>
+    </span>
+  </div>
+</div>

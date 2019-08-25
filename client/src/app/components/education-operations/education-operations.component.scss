@@ -1,0 +1,84 @@
+.dot {
+  margin: auto;
+  width: 306px;
+  float: right;
+
+  img:first-child {
+    float: right;
+  }
+}
+
+.dot2 {
+  margin: auto;
+  float: right;
+
+  img:first-child {
+    float: right;
+  }
+}
+
+.sec-plate {
+  float: left !important;
+}
+
+.navigator {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 45px;
+
+  span {
+    cursor: pointer;
+  }
+
+  span:first-child {
+    float: left;
+
+    i {
+      color: darkred;
+      font-size: 58px;
+    }
+  }
+
+  span:nth-child(2) {
+    float: right;
+
+    i {
+      color: darkblue;
+      font-size: 58px;
+    }
+  }
+}
+
+.plate {
+  width: 340px;
+  height: 200px;
+}
+
+.fruits {
+  width: 200px;
+  text-align: center;
+  margin-left: 70px;
+  margin-bottom: -144px;
+  position: relative;
+
+  .apple {
+    width: 55px;
+    height: 55px;
+    float: inherit;
+  }
+}
+
+.fruits2 {
+  width: 200px;
+  text-align: center;
+  margin-left: 35px;
+  margin-bottom: -144px;
+  position: relative;
+
+  .apple2 {
+    width: 55px;
+    height: 55px;
+    float: inherit;
+  }
+}
