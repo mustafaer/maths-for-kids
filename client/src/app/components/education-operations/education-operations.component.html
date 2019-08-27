@@ -1,3 +1,32 @@
+
+<style>
+  #div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+  }
+</style>
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
 <div class="container-fluid body-div">
   <div class="volume-div">
     <i class="fas fa-volume-up"></i>
@@ -26,9 +55,7 @@
       <div class="dot" [ngStyle]="{'line-height':appleCount2<4 ? '140px' : 'inherit' }">
         <div class="fruits2">
           <img src="">
-          <img class="apple2" src="{{apple}}">
-          <img class="apple2" src="{{apple}}">
-          <img class="apple2" src="{{apple}}">
+          <img class="apple2" src="{{apple}}" id="draggable" cdkDrag>
         </div>
       </div>
       <div class="dot2">
@@ -38,7 +65,7 @@
     <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12"></div>
   </div>
   <div class="row" style="margin: 0 !important;">
-    <div class="dot">
+    <div class="dot" id="di8v1" ondrop="dropa(event)" ondragover="allowDrop(event)">
       <img class="plate" src="{{plate}}">
     </div>
     <!--<div class="dot"  ondragover="allowDrop(event)" ondrop="handleDrop()"ondragenter="colorize(this)"

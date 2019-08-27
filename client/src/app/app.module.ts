@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginLayoutComponent } from './shared/layouts/login-layout/login-layout.component';
 import { HomeLayoutComponent } from './shared/layouts/home-layout/home-layout.component';
+import { EducationOperationsComponent } from './components/education-operations/education-operations.component';
+import { EvaluationOperationsComponent } from './components/evaluation-operations/evaluation-operations.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginLayoutComponent,
-    HomeLayoutComponent
+    HomeLayoutComponent,
+    EducationOperationsComponent,
+    EvaluationOperationsComponent
   ],
   imports: [
     BrowserModule,
