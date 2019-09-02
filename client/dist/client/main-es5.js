@@ -341,13 +341,11 @@ var EducationOperationsComponent = /** @class */ (function () {
     }
     EducationOperationsComponent.prototype.ngOnInit = function () {
         // @ts-ignore
-        $('.apple').vibrate(50);
         // @ts-ignore
         $('#sortable1, #sortable2, #sortable3').sortable({
             connectWith: '.connectedSortable',
         }).on('sortstop', function (event, ui) {
-            console.log(event);
-            console.log(1);
+            window.navigator.vibrate(200);
         });
     };
     EducationOperationsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
