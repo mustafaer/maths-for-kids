@@ -333,7 +333,7 @@ let EducationOperationsComponent = class EducationOperationsComponent {
     }
     ngOnInit() {
         // @ts-ignore
-        $('.apple').vibrate('medium');
+        $('.apple').vibrate(50);
         // @ts-ignore
         $('#sortable1, #sortable2, #sortable3').sortable({
             connectWith: '.connectedSortable',

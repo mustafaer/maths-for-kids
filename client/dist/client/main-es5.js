@@ -341,7 +341,7 @@ var EducationOperationsComponent = /** @class */ (function () {
     }
     EducationOperationsComponent.prototype.ngOnInit = function () {
         // @ts-ignore
-        $('.apple').vibrate('medium');
+        $('.apple').vibrate(50);
         // @ts-ignore
         $('#sortable1, #sortable2, #sortable3').sortable({
             connectWith: '.connectedSortable',
