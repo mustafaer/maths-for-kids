@@ -1,32 +1,3 @@
-
-<style>
-  #div1 {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-  }
-</style>
-<script>
-    function allowDrop(ev) {
-        ev.preventDefault();
-    }
-
-    function drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
-    }
-
-    function drop(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
-    }
-</script>
-
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<br>
-<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
-
 <div class="container-fluid body-div">
   <div class="volume-div">
     <i class="fas fa-volume-up"></i>
@@ -40,36 +11,38 @@
     <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12"></div>
     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
       <div style="float: left">
-        <div class="dot" style="float: left !important;" [ngStyle]="{'line-height':appleCount<4 ? '140px' : 'inherit' }">
-          <div class="fruits">
+        <div class="dot" style="float: left !important;" [ngStyle]="{'line-height':appleCount<5? '140px' : 'inherit' }">
+          <div class="fruits connectedSortable" id="sortable1"
+               [ngStyle]="{'margin-top':appleCount<4 ? '75px' : appleCount<7 ? '39px' : appleCount<9 ? '36px' : '0px','width':appleCount<8 ? '167px' : '220px !important','margin-left':appleCount<8 ? '104px' : '76px'}">
             <img src="">
-            <img class="apple" src="{{apple}}"*ngFor="let i of Arr(appleCount);">
+            <img class="apple" src="{{apple}}" *ngFor="let i of Arr(appleCount);">
           </div>
-
           <img class="plate" src="{{plate}}">
         </div>
       </div>
     </div>
     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12"></div>
     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-      <div class="dot" [ngStyle]="{'line-height':appleCount2<4 ? '140px' : 'inherit' }">
-        <div class="fruits2">
+      <div class="dot">
+        <div class="fruits2 connectedSortable" id="sortable2"
+             [ngStyle]="{'margin-top':appleCount2<4 ? '75px' : appleCount2<7 ? '39px' : appleCount2<9 ? '36px' : '0px','width':appleCount2<7 ? '167px' : '220px !important','margin-left':appleCount2<7 ? '28px' : '5px'}">
           <img src="">
-          <img class="apple2" src="{{apple}}" id="draggable" cdkDrag>
+          <img class="apple" src="{{apple}}" *ngFor="let i of Arr(appleCount2);">
         </div>
       </div>
       <div class="dot2">
-        <img class="plate sec-plate" src="{{plate}}">
+        <img class="plate sec-plate " src="{{plate}}">
       </div>
     </div>
     <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12"></div>
   </div>
   <div class="row" style="margin: 0 !important;">
-    <div class="dot" id="di8v1" ondrop="dropa(event)" ondragover="allowDrop(event)">
-      <img class="plate" src="{{plate}}">
+    <div class="dot">
+      <div class="fruits3 connectedSortable" id="sortable3">
+        <img src="">
+      </div>
+      <img class="plate2" src="{{plate}}">
     </div>
-    <!--<div class="dot"  ondragover="allowDrop(event)" ondrop="handleDrop()"ondragenter="colorize(this)"
-         ondragleave="uncolorize(this)"></div>-->
   </div>
   <div class="navigator">
     <span>

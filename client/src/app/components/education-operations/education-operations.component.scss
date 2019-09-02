@@ -3,18 +3,12 @@
   width: 306px;
   float: right;
 
-  img:first-child {
-    float: right;
-  }
 }
 
 .dot2 {
   margin: auto;
   float: right;
 
-  img:first-child {
-    float: right;
-  }
 }
 
 .sec-plate {
@@ -51,34 +45,45 @@
 }
 
 .plate {
-  width: 340px;
-  height: 200px;
+  width: 380px;
+  height: 240px;
+}
+.plate2 {
+  width: 400px;
+  height: 250px;
 }
 
 .fruits {
-  width: 200px;
+  width: 220px;
   text-align: center;
-  margin-left: 70px;
+  margin-left: 79px;
   margin-bottom: -144px;
-  position: relative;
+  height: 137px;
+  position: absolute;
+}
 
-  .apple {
-    width: 55px;
-    height: 55px;
-    float: inherit;
-  }
+.apple {
+  vertical-align: middle !important;
+  width: 55px;
+  height: 55px;
+  float: inherit;
 }
 
 .fruits2 {
-  width: 200px;
+  width: 220px;
   text-align: center;
-  margin-left: 35px;
+  margin-left: 5px;
   margin-bottom: -144px;
-  position: relative;
+  height: 137px;
+  position: absolute;
 
-  .apple2 {
-    width: 55px;
-    height: 55px;
-    float: inherit;
-  }
+}
+
+.fruits3 {
+  width: 277px;
+  text-align: center;
+  margin-left: 56px;
+  height: 137px;
+  position: absolute;
+
 }
