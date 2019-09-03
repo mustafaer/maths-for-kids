@@ -47,14 +47,8 @@ export class EducationOperationsComponent implements OnInit {
   }
 
   nextQuestion() {
-    // @ts-ignore
-    $('.fruits3 .apple').remove();
     this.currentQuestion++;
-
-    this.appleCount = this.plusOperations[this.currentQuestion - 1].first;
-    this.appleCount2 = this.plusOperations[this.currentQuestion - 1].second;
-    this.createFruits1();
-    this.createFruits2();
+    this.resetQuestion();
     if (this.currentQuestion >= 10) {
       this.isLast = true;
     }
@@ -63,13 +57,8 @@ export class EducationOperationsComponent implements OnInit {
   }
 
   previousQuestion() {
-    // @ts-ignore
-    $('.fruits3 .apple').remove();
     this.currentQuestion--;
-    this.appleCount = this.plusOperations[this.currentQuestion - 1].first;
-    this.appleCount2 = this.plusOperations[this.currentQuestion - 1].second;
-    this.createFruits1();
-    this.createFruits2();
+    this.resetQuestion();
     if (this.currentQuestion <= 1) {
       this.isFirst = true;
     }
@@ -96,5 +85,14 @@ export class EducationOperationsComponent implements OnInit {
     }
     // @ts-ignore
     $('#sortable2').html(htmlImg);
+  }
+
+  resetQuestion(){
+    // @ts-ignore
+    $('.fruits3 .apple').remove();
+    this.appleCount = this.plusOperations[this.currentQuestion - 1].first;
+    this.appleCount2 = this.plusOperations[this.currentQuestion - 1].second;
+    this.createFruits1();
+    this.createFruits2();
   }
 }
