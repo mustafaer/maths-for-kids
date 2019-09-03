@@ -7,7 +7,7 @@
   <div style="text-align: center;">
     <label class="operation mt-5">
       <b>
-        {{plusOperations[currentQuestion - 1]['first']}}&nbsp;+&nbsp;{{plusOperations[currentQuestion - 1]['second']}}&nbsp;=&nbsp;?
+        {{appleCount}}&nbsp;+&nbsp;{{appleCount2}}&nbsp;=&nbsp;?
       </b>
     </label>
   </div>
@@ -17,9 +17,9 @@
       <div style="float: left">
         <div class="dot" style="float: left !important;">
           <div class="fruits connectedSortable" id="sortable1"
-               [ngStyle]="{'margin-top':plusOperations[currentQuestion - 1]['first']<4 ? '75px' : plusOperations[currentQuestion - 1]['first']<7 ? '39px' : plusOperations[currentQuestion - 1]['first']<9 ? '7px' : '0px','width':plusOperations[currentQuestion - 1]['first']<8 ? '167px' : '220px !important','margin-left':plusOperations[currentQuestion - 1]['first']<8 ? '104px' : '76px'}">
+               [ngStyle]="{'margin-top':appleCount<4 ? '75px' : appleCount<7 ? '39px' : appleCount<9 ? '7px' : '0px','width':appleCount<8 ? '167px' : '220px !important','margin-left':appleCount<8 ? '104px' : '76px'}">
             <img src="">
-            <img class="apple" src="{{apple}}" *ngFor="let i of Arr(plusOperations[currentQuestion - 1]['first']);">
+            <img class="apple fruits_a" src="{{apple}}" *ngFor="let i of Arr(appleCount);">
           </div>
           <img class="plate" src="{{plate}}">
         </div>
@@ -29,9 +29,9 @@
     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
       <div class="dot">
         <div class="fruits2 connectedSortable" id="sortable2"
-             [ngStyle]="{'margin-top':plusOperations[currentQuestion - 1]['second']<4 ? '75px' : plusOperations[currentQuestion - 1]['second']<7 ? '39px' : plusOperations[currentQuestion - 1]['second']<9 ? '7px' : '0px','width':plusOperations[currentQuestion - 1]['second']<7 ? '167px' : '220px !important','margin-left':plusOperations[currentQuestion - 1]['second']<8 ? '28px' : '5px'}">
+             [ngStyle]="{'margin-top':appleCount2<4 ? '75px' : appleCount2<7 ? '39px' : appleCount2<9 ? '7px' : '0px','width':appleCount2<7 ? '167px' : '220px !important','margin-left':appleCount2<8 ? '28px' : '5px'}">
           <img src="">
-          <img class="apple" src="{{apple}}" *ngFor="let i of Arr(plusOperations[currentQuestion - 1]['second']);">
+          <img class="apple fruits2_a" src="{{apple}}" *ngFor="let i of Arr(appleCount2);">
         </div>
       </div>
       <div class="dot2">
@@ -42,7 +42,8 @@
   </div>
   <div class="row" style="margin: 0 !important;">
     <div class="dot">
-      <div class="fruits3 connectedSortable" id="sortable3">
+      <div class="fruits3 connectedSortable" id="sortable3"
+           [ngStyle]="{'padding':movedApple<4 ? '75px 0 0 0' : movedApple<7 ? '39px 55px 0 55px' : movedApple<9 ? '4px 55px 0 55px' : '0px'}">
         <img src="">
       </div>
       <img class="plate2" src="{{plate}}">
