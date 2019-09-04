@@ -24,8 +24,12 @@ export class MultiplyEducationComponent implements OnInit {
   isLast: boolean;
   currentQuestion: number;
   movedApple: number;
+  sound;
+  appleSound;
+  isSoundUp = false;
 
   constructor(private router: Router) {
+    this.isSoundUp = JSON.parse(sessionStorage.getItem('soundState'));
     this.isLast = false;
     this.isFirst = true;
     this.movedApple = 0;
@@ -37,6 +41,14 @@ export class MultiplyEducationComponent implements OnInit {
   ngOnInit() {
     this.createPlates();
     this.sortApples();
+    this.sound = document.getElementsByTagName('audio');
+    if (this.isSoundUp) {
+      this.startSound();
+    }
+    // @ts-ignore
+    $(document).on('mousedown', '.apple', (event) => {
+      this.startAppleSound();
+    });
   }
 
   plt(id) {
@@ -154,5 +166,30 @@ export class MultiplyEducationComponent implements OnInit {
 
   goHome() {
     this.router.navigate(['/dashboard']);
+  }
+
+  stopSound() {
+    this.sound[0].pause();
+    this.isSoundUp = false;
+    sessionStorage.setItem('soundState', 'false');
+  }
+
+  startSound() {
+    this.sound[0].play();
+    this.isSoundUp = true;
+    sessionStorage.setItem('soundState', 'true');
+  }
+
+  startAppleSound() {
+    this.appleSound = document.createElement('audio');
+
+    const src = '../../../../assets/sounds/button-21.mp3';
+
+    this.appleSound.src = src;
+    this.appleSound.setAttribute('preload', 'auto');
+    this.appleSound.setAttribute('controls', 'none');
+    this.appleSound.style.display = 'none';
+    document.body.appendChild(this.appleSound);
+    this.appleSound.play();
   }
 }

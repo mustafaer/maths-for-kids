@@ -1,7 +1,7 @@
 <div class="container-fluid body-div">
   <div class="volume-div">
-    <i class="fas fa-volume-up"></i>
-    <i style="display: none" class="fas fa-volume-mute"></i>
+    <i [hidden]="!isSoundUp" (click)="stopSound()" class="fas fa-volume-up"></i>
+    <i [hidden]="isSoundUp" (click)="startSound()" class="fas fa-volume-mute"></i>
     <br>
     <i [hidden]="pageState === 0" (click)="goHome()" style="color: orangered; cursor: pointer;" title="Ana Sayfa" class="fas fa-sign-out-alt"></i>
   </div>

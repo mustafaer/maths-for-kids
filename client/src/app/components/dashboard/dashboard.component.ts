@@ -15,12 +15,35 @@ export class DashboardComponent implements OnInit {
   divide = Items.divide;
   multiply = Items.multiply;
   pageState: number;
+  sound;
+  isSoundUp = false;
 
   constructor(private router: Router) {
+    if (JSON.parse(sessionStorage.getItem('soundState')) == null) {
+      sessionStorage.setItem('soundState', 'false');
+    } else {
+      this.isSoundUp = JSON.parse(sessionStorage.getItem('soundState'));
+    }
   }
 
   ngOnInit() {
+    this.sound = document.getElementsByTagName('audio');
     this.goHome();
+    if (this.isSoundUp) {
+      this.startSound();
+    }
+  }
+
+  stopSound() {
+    this.sound[0].pause();
+    this.isSoundUp = false;
+    sessionStorage.setItem('soundState', 'false');
+  }
+
+  startSound() {
+    this.sound[0].play();
+    this.isSoundUp = true;
+    sessionStorage.setItem('soundState', 'true');
   }
 
   goHome() {
