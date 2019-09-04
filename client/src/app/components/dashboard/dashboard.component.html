@@ -6,34 +6,49 @@
   <img class="dashboard-background" src="{{mainBackground}}">
   <div style="text-align: center">
     <label class="main-header"><b>DÖRT İŞLEM ÖĞRENİYORUM</b></label><br>
-    <label class="main-header-info"><b>(Öğretim)</b></label>
+    <label  [hidden]="pageState !== 2"  class="main-header-info"><b>(Öğretim)</b></label>
+    <label  [hidden]="pageState !== 3"  class="main-header-info"><b>(Değerlendirme)</b></label>
   </div>
   <div class="start-background-div col-xl-12 col-lg-12 col-md-12 col-sm-12">
-    <div style="display: none" class="bg-12">
+    <div [hidden]="pageState !== 0" (click)="goSessions()"  class="bg-12">
       <label class="start-label">HADİ BAŞLAYALIM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-caret-right"></i></label>
     </div>
-    <div style="display: none" class="education-session-div ">
+    <div [hidden]="pageState !== 1" class="education-session-div ">
       <label class="col-xl-1 col-lg-1 col-md-1 col-sm-12"></label>
-      <label class="education-session col-xl-4 col-lg-4 col-md-4 col-sm-4">Öğretim Oturumları&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
-        class="fas fa-caret-right"></i></label>
+      <label (click)="goEducationSession()" class="education-session col-xl-4 col-lg-4 col-md-4 col-sm-4">Öğretim<br>Oturumları</label>
       <label class="col-xl-1 col-lg-1 col-md-1 col-sm-12"></label>
-      <label class="evaluation-session col-xl-4 col-lg-4 col-md-4 col-sm-4">Değerlendirme Oturumları&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
-        class="fas fa-caret-right"></i></label>
+      <label (click)="goEvaluationSession()" class="evaluation-session col-xl-4 col-lg-4 col-md-4 col-sm-4">Değerlendirme<br>Oturumları</label>
       <label class="col-xl-1 col-lg-1 col-md-1 col-sm-12"></label>
     </div>
-    <div class="operation-icons-div">
+    <div [hidden]="pageState !== 2" class="operation-icons-div">
       <label class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
         <span>
-          <img src="{{plus}}">
+          <img (click)="goPlusEducation()" src="{{plus}}">
         </span>
         <span>
-          <img src="{{minus}}">
+          <img (click)="goMinusEducation()" src="{{minus}}">
         </span>
         <span>
-          <img src="{{multiply}}">
+          <img (click)="goMultiplyEducation()" src="{{multiply}}">
         </span>
         <span>
-          <img src="{{divide}}">
+          <img (click)="goDivideEducation()" src="{{divide}}">
+        </span>
+      </label>
+    </div>
+    <div [hidden]="pageState !== 3" class="operation-icons-div">
+      <label class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <span>
+          <img (click)="goPlusEvaluation()" src="{{plus}}">
+        </span>
+        <span>
+          <img (click)="goMinusEvaluation()" src="{{minus}}">
+        </span>
+        <span>
+          <img (click)="goMultiplyEvaluation()" src="{{multiply}}">
+        </span>
+        <span>
+          <img (click)="goDivideEvaluation()" src="{{divide}}">
         </span>
       </label>
     </div>

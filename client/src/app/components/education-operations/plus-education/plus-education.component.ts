@@ -1,18 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {Items} from '../../shared/shared';
+import {Items} from '../../../shared/shared';
 // @ts-ignore
-import plus from '../../../assets/operations/plus.json';
+import plus from '../../../shared/operations/plus.json';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-education-operations',
-  templateUrl: './education-operations.component.html',
-  styleUrls: ['./education-operations.component.scss']
+  selector: 'app-plus-education',
+  templateUrl: './plus-education.component.html',
+  styleUrls: ['./plus-education.component.scss']
 })
 
-export class EducationOperationsComponent implements OnInit {
+export class PlusEducationComponent implements OnInit {
 
   Arr = Array;
   educationBackground = Items.educationBackground;
+  mainBackground = Items.mainBackground;
+  cloud = Items.cloud;
   apple = Items.apple;
   plate = Items.plate;
   appleCount: number;
@@ -23,7 +26,7 @@ export class EducationOperationsComponent implements OnInit {
   currentQuestion: number;
   movedApple: number;
 
-  constructor() {
+  constructor(private router: Router) {
     this.movedApple = 0;
     this.isFirst = true;
     this.isLast = false;
@@ -48,9 +51,11 @@ export class EducationOperationsComponent implements OnInit {
 
   nextQuestion() {
     this.currentQuestion++;
-    this.resetQuestion();
-    if (this.currentQuestion >= 10) {
+    if (this.currentQuestion > 10) {
       this.isLast = true;
+    }
+    if (this.isLast !== true) {
+      this.resetQuestion();
     }
     this.isFirst = false;
 
@@ -58,10 +63,10 @@ export class EducationOperationsComponent implements OnInit {
 
   previousQuestion() {
     this.currentQuestion--;
-    this.resetQuestion();
     if (this.currentQuestion <= 1) {
       this.isFirst = true;
     }
+    this.resetQuestion();
     this.isLast = false;
   }
 
@@ -87,12 +92,16 @@ export class EducationOperationsComponent implements OnInit {
     $('#sortable2').html(htmlImg);
   }
 
-  resetQuestion(){
+  resetQuestion() {
     // @ts-ignore
     $('.fruits3 .apple').remove();
     this.appleCount = this.plusOperations[this.currentQuestion - 1].first;
     this.appleCount2 = this.plusOperations[this.currentQuestion - 1].second;
     this.createFruits1();
     this.createFruits2();
+  }
+
+  goHome() {
+    this.router.navigate(['/dashboard']);
   }
 }
