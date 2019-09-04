@@ -1,1 +1,63 @@
-<p>minus-education works!</p>
+<div [hidden]="isLast">
+  <div class="container-fluid body-div">
+    <div class="volume-div" style="z-index: 5000">
+      <i class="fas fa-volume-up"></i>
+      <i style="display: none" class="fas fa-volume-mute"></i>
+      <br>
+      <i (click)="resetQuestion()" style="color: darkred; cursor: pointer;" title="Sıfırla"
+         class="fas fa-trash-restore"></i>
+      <br>
+      <i (click)="goHome()" style="color: orangered; cursor: pointer;" title="Ana Sayfa"
+         class="fas fa-sign-out-alt"></i>
+    </div>
+    <img class="dashboard-background" src="{{educationBackground}}">
+    <div style="text-align: center;">
+      <label class="operation mt-5">
+        <b>
+          {{appleCount}}&nbsp;-&nbsp;{{appleCount2}}&nbsp;=&nbsp;?
+        </b>
+      </label>
+    </div>
+    <div id="removedApples" style="border: 2px solid darkred; width: 60px; min-height: 100px; border-radius: 7px; position: absolute; margin-left: 10px; margin-top: 95px; text-align: center;">
+      <img class="apple fruits_a" src="{{apple}}" *ngFor="let i of Arr(movedApple);">
+    </div>
+    <div class="row" style="margin: 0 !important; margin-top: 126px !important;">
+      <div class="dot">
+        <div class="fruits3" id="sortable3"
+             [ngStyle]="{'padding':appleCount<4 ? '75px 0 0 0' : appleCount<7 ? '39px 55px 0 55px' : appleCount<9 ? '4px 55px 0 55px' : '0px'}">
+          <img src="">
+          <img class="apple fruits_a" src="{{apple}}" *ngFor="let i of Arr(appleCount);">
+        </div>
+        <img class="plate2" src="{{plate}}">
+      </div>
+    </div>
+    <div class="navigator">
+    <span [hidden]="isFirst" (click)="previousQuestion()">
+      <i class="far fa-hand-point-left"></i>
+    </span>
+      <span [hidden]="isLast" (click)="nextQuestion()" style="float: right">
+      <i class="far fa-hand-point-right"></i>
+    </span>
+    </div>
+  </div>
+</div>
+<div [hidden]="!isLast">
+  <!--the end-->
+  <div class="container-fluid body-div">
+    <div class="volume-div">
+      <i class="fas fa-volume-up"></i>
+      <i style="display: none" class="fas fa-volume-mute"></i>
+    </div>
+    <img class="dashboard-background" src="{{mainBackground}}">
+    <div style="text-align: center">
+      <img style="width: 405px; margin-top: 25px;" src="{{cloud}}">
+    </div>
+    <div class="start-background-div col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div (click)="goHome()" class="bg-12">
+        <label class="start-label">Ana Sayfaya Dön&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+          class="fas fa-sign-out-alt"></i></label>
+      </div>
+    </div>
+  </div>
+
+</div>

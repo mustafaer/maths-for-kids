@@ -27,6 +27,10 @@ export class DashboardComponent implements OnInit {
     * 3 -> Select Evaluation Operation Type*/
   }
 
+  goHome() {
+    this.ngOnInit()
+  }
+
   goSessions() {
     this.pageState = 1;
   }
@@ -44,6 +48,7 @@ export class DashboardComponent implements OnInit {
   }
 
   goMinusEducation() {
+    this.router.navigate(['/dashboard/minus-education']);
   }
 
   goMultiplyEducation() {

@@ -5,6 +5,7 @@ import {HomeLayoutComponent} from './shared/layouts/home-layout/home-layout.comp
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {EvaluationOperationsComponent} from './components/evaluation-operations/evaluation-operations.component';
 import {PlusEducationComponent} from './components/education-operations/plus-education/plus-education.component';
+import {MinusEducationComponent} from './components/education-operations/minus-education/minus-education.component';
 
 const routes: Routes = [{
   path: '', component: LoginLayoutComponent,
@@ -18,6 +19,9 @@ const routes: Routes = [{
       },
       {
         path: 'plus-education', component: PlusEducationComponent
+      },
+      {
+        path: 'minus-education', component: MinusEducationComponent
       },
       {
         path: 'evaluation-operations', component: EvaluationOperationsComponent
