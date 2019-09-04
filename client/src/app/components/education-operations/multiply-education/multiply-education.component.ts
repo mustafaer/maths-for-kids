@@ -41,7 +41,7 @@ export class MultiplyEducationComponent implements OnInit {
 
   plt(id) {
     // tslint:disable-next-line:max-line-length
-    const plates = '<div class="plate_container"><div id="fruitsMinus3_' + id + '" class="fruitsMinus3 connectedSortable"></div><img class="plateMultiply3" src="' + this.plate + '"></div>';
+    const plates = '<div class="plate_container"><div id="fruitsMultiply3_' + id + '" class="fruitsMultiply3 connectedSortable"></div><img class="plateMultiply3" src="' + this.plate + '"></div>';
     return plates;
   }
 
@@ -57,19 +57,19 @@ export class MultiplyEducationComponent implements OnInit {
     $('.dotMultiply3').html(htmlImg);
     if (this.appleCount2 === 1) {
       // @ts-ignore
-      $('.fruitsMinus3').css('margin-left', '110px');
+      $('.fruitsMultiply3').css('margin-left', '110px');
     } else if (this.appleCount2 === 2) {
       // @ts-ignore
-      $('.fruitsMinus3').css('margin-left', '59px');
+      $('.fruitsMultiply3').css('margin-left', '59px');
     } else if (this.appleCount2 === 3) {
       // @ts-ignore
-      $('.fruitsMinus3').css('margin-left', '33px');
+      $('.fruitsMultiply3').css('margin-left', '33px');
     }
   }
 
   sortApples() {
     // @ts-ignore
-    $('#sortable1, .fruitsMinus3').sortable({
+    $('#sortable1, .fruitsMultiply3').sortable({
       connectWith: '.connectedSortable',
       receive: (event, ui) => {
         // @ts-ignore

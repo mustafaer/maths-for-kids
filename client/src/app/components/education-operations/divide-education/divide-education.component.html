@@ -1,1 +1,60 @@
-<p>divide-education works!</p>
+<div [hidden]="isLast">
+  <div class="container-fluid body-div">
+    <div class="volume-div" style="z-index: 5000">
+      <i class="fas fa-volume-up"></i>
+      <i style="display: none" class="fas fa-volume-mute"></i>
+      <br>
+      <i (click)="resetQuestion()" style="color: darkred; cursor: pointer;" title="Sıfırla"
+         class="fas fa-trash-restore"></i>
+      <br>
+      <i (click)="goHome()" style="color: orangered; cursor: pointer;" title="Ana Sayfa"
+         class="fas fa-sign-out-alt"></i>
+    </div>
+    <img class="dashboard-background" src="{{educationBackground}}">
+    <div style="text-align: center;">
+      <label class="operation mt-5">
+        <b>
+          {{appleCount}}&nbsp;÷&nbsp;{{appleCount2}}&nbsp;=&nbsp;?
+        </b>
+      </label>
+    </div>
+    <div id="sortable1" class="applesDivDivide connectedSortable">
+      <span id="allApplesDivide" *ngFor="let i of Arr(appleCount);">
+        <img class="apple fruits_a" src="{{apple}}">
+      </span>
+    </div>
+    <div class="row" style="margin: 0 !important; margin-top: 6% !important; text-align: center">
+      <div class="dotDivide3"
+           [ngStyle]="{'width':appleCount2>5 ? '834px' : appleCount2>2 ? '705px' :appleCount2==2 ? '460px' :appleCount2==1 ? '230px' : '0px'}">
+      </div>
+    </div>
+    <div class="navigator">
+    <span [hidden]="isFirst" (click)="previousQuestion()">
+      <i class="far fa-hand-point-left"></i>
+    </span>
+      <span [hidden]="isLast" (click)="nextQuestion()" style="float: right">
+      <i class="far fa-hand-point-right"></i>
+    </span>
+    </div>
+  </div>
+</div>
+<div [hidden]="!isLast">
+  <!--the end-->
+  <div class="container-fluid body-div">
+    <div class="volume-div">
+      <i class="fas fa-volume-up"></i>
+      <i style="display: none" class="fas fa-volume-mute"></i>
+    </div>
+    <img class="dashboard-background" src="{{mainBackground}}">
+    <div style="text-align: center">
+      <img style="width: 405px; margin-top: 25px;" src="{{cloud}}">
+    </div>
+    <div class="start-background-div col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div (click)="goHome()" class="bg-12">
+        <label class="start-label">Ana Sayfaya Dön&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+          class="fas fa-sign-out-alt"></i></label>
+      </div>
+    </div>
+  </div>
+
+</div>
