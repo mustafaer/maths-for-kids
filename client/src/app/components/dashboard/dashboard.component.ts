@@ -20,15 +20,15 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.goHome();
+  }
+
+  goHome() {
     this.pageState = 0;
     /* 0 -> Main page
     *  1 -> Select Session Stype
     *  2 -> Select Education Operation Type
     * 3 -> Select Evaluation Operation Type*/
-  }
-
-  goHome() {
-    this.ngOnInit()
   }
 
   goSessions() {
@@ -52,13 +52,14 @@ export class DashboardComponent implements OnInit {
   }
 
   goMultiplyEducation() {
+    this.router.navigate(['/dashboard/multiply-education']);
   }
 
   goDivideEducation() {
+    this.router.navigate(['/dashboard/divide-education']);
   }
 
   goPlusEvaluation() {
-
   }
 
   goMinusEvaluation() {

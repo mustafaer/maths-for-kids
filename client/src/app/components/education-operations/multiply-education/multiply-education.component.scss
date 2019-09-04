@@ -1,0 +1,80 @@
+.dotMultiply3 {
+  margin: auto;
+  width: 690px;
+  text-align: center;
+}
+
+.sec-plate {
+  float: left !important;
+}
+
+.navigator {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 45px;
+
+  span {
+    cursor: pointer;
+  }
+
+  span:first-child {
+    float: left;
+
+    i {
+      color: darkred;
+      font-size: 58px;
+    }
+  }
+
+  span:nth-child(2) {
+    float: right;
+
+    i {
+      color: darkblue;
+      font-size: 58px;
+    }
+  }
+}
+
+
+.apple {
+  vertical-align: middle !important;
+  width: 55px;
+  height: 55px;
+  float: inherit;
+  cursor: grabbing;
+}
+
+.fruitsMinus3 {
+  width: 167px;
+  height: 137px;
+  margin-bottom: -147px;
+  margin-left: 55px;
+  position: sticky;
+
+}
+
+.plateMultiply3 {
+  width: 230px;
+  height: 126px;
+}
+
+.plate_container {
+  width: auto;
+  height: auto;
+  float: left;
+}
+
+.applesDivMultiply {
+ /* border: 2px solid darkred;*/
+  width: 60px;
+  min-height: 100px;
+  border-radius: 7px;
+  text-align: center;
+  position: absolute;
+}
+
+#allApples {
+  position: absolute;
+}
