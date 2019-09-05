@@ -1,0 +1,102 @@
+.dot {
+  margin: auto;
+  width: 306px;
+  float: right;
+
+}
+
+.dot2 {
+  margin: auto;
+  float: right;
+
+}
+
+.sec-plate {
+  float: left !important;
+}
+
+.navigator {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 45px;
+
+  span {
+    cursor: pointer;
+  }
+
+  span:first-child {
+    float: left;
+
+    i {
+      color: darkred;
+      font-size: 58px;
+    }
+  }
+
+  span:nth-child(2) {
+    float: right;
+
+    i {
+      color: darkblue;
+      font-size: 58px;
+    }
+  }
+}
+
+.plate {
+  width: 380px;
+  height: 240px;
+}
+
+.plate2 {
+  width: 400px;
+  height: 250px;
+  margin-left: -50px;
+}
+
+.fruits {
+  width: 220px;
+  text-align: center;
+  margin-left: 79px;
+  margin-bottom: -144px;
+  height: 137px;
+  position: absolute;
+}
+
+.apple {
+  vertical-align: middle !important;
+  width: 55px;
+  height: 55px;
+  float: inherit;
+  cursor: grabbing;
+}
+
+.fruits2 {
+  width: 220px;
+  text-align: center;
+  margin-left: 5px;
+  margin-bottom: -144px;
+  height: 137px;
+  position: absolute;
+
+}
+
+.fruits3 {
+  width: 277px;
+  text-align: center;
+  margin-left: 9px;
+  height: 137px;
+  position: absolute;
+
+}
+
+.answerButton {
+  width: 35px;
+  height: 35px;
+  padding: 10px 28px;
+  background-color: whitesmoke;
+  border: 1px solid darkgray;
+  border-radius: 7px;
+  cursor: pointer;
+}

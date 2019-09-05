@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Items} from '../../../shared/shared';
 // @ts-ignore
-import plus from '../../../shared/operations/divide.json';
+import plus from '../../../shared/operations/education/divide.json';
 import {Router} from '@angular/router';
 
 @Component({

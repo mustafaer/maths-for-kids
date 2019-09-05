@@ -121,14 +121,18 @@ export class DashboardComponent implements OnInit {
   }
 
   goPlusEvaluation() {
+    this.router.navigate(['/dashboard/plus-evaluation']);
   }
 
   goMinusEvaluation() {
+    this.router.navigate(['/dashboard/minus-evaluation']);
   }
 
   goMultiplyEvaluation() {
+    this.router.navigate(['/dashboard/multiply-evaluation']);
   }
 
   goDivideEvaluation() {
+    this.router.navigate(['/dashboard/divide-evaluation']);
   }
 }

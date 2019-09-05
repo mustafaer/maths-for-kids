@@ -1,0 +1,97 @@
+<div [hidden]="isLast">
+  <div class="container-fluid body-div">
+    <div class="volume-div" style="z-index: 5000">
+      <i [hidden]="!isSoundUp" (click)="stopSound()" class="fas fa-volume-up"></i>
+      <i [hidden]="isSoundUp" (click)="startSound()" class="fas fa-volume-mute"></i>
+      <br>
+      <i (click)="toggleFullScreen()" style="color: yellow; cursor: pointer;"
+         [ngClass]="toggleState ? 'fas fa-compress-arrows-alt':'fas fa-arrows-alt'"></i>
+      <br>
+      <i (click)="resetQuestion()" style="color: darkred; cursor: pointer;" title="Sıfırla"
+         class="fas fa-trash-restore"></i>
+      <br>
+      <i (click)="goHome()" style="color: orangered; cursor: pointer;" title="Ana Sayfa"
+         class="fas fa-sign-out-alt"></i>
+    </div>
+    <img class="dashboard-background" src="{{educationBackground}}">
+    <div style="text-align: center;">
+      <label class="operation mt-5">
+        <b>
+          {{appleCount}}&nbsp;+&nbsp;{{appleCount2}}&nbsp;=&nbsp;?
+        </b>
+      </label>
+    </div>
+    <div class="row mt-4" style="margin: 0 !important;">
+      <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12"></div>
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+        <div style="float: left">
+          <div class="dot" style="float: left !important;">
+            <div class="fruits connectedSortable" id="sortable1"
+                 [ngStyle]="{'margin-top':appleCount<4 ? '75px' : appleCount<7 ? '39px' : appleCount<9 ? '7px' : '0px','width':appleCount<8 ? '167px' : '220px !important','margin-left':appleCount<8 ? '104px' : '76px'}">
+              <img src="">
+              <img class="apple fruits_a" src="{{apple}}" *ngFor="let i of Arr(appleCount);">
+            </div>
+            <img class="plate" src="{{plate}}">
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12"></div>
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+        <div class="dot">
+          <div class="fruits2 connectedSortable" id="sortable2"
+               [ngStyle]="{'margin-top':appleCount2<4 ? '75px' : appleCount2<7 ? '39px' : appleCount2<9 ? '7px' : '0px','width':appleCount2<7 ? '167px' : '220px !important','margin-left':appleCount2<8 ? '28px' : '5px'}">
+            <img src="">
+            <img class="apple fruits2_a" src="{{apple}}" *ngFor="let i of Arr(appleCount2);">
+          </div>
+        </div>
+        <div class="dot2">
+          <img class="plate sec-plate " src="{{plate}}">
+        </div>
+      </div>
+      <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12"></div>
+    </div>
+    <div class="row" style="margin: 0 !important;">
+      <div class="dot">
+        <div class="fruits3 connectedSortable" id="sortable3"
+             [ngStyle]="{'padding':movedApple<4 ? '75px 0 0 0' : movedApple<7 ? '39px 55px 0 55px' : movedApple<9 ? '4px 55px 0 55px' : '0px'}">
+          <img src="">
+        </div>
+        <img class="plate2" src="{{plate}}">
+      </div>
+    </div>
+    <div id="answerDiv" style="width:100%; margin-top: -25px;text-align: center;z-index: 7000; position: absolute;">
+    </div>
+    <div class="navigator">
+    <span [hidden]="isFirst" (click)="previousQuestion()">
+      <i class="far fa-hand-point-left"></i>
+    </span>
+      <span [hidden]="isLast" (click)="nextQuestion()" style="float: right">
+      <i class="far fa-hand-point-right"></i>
+    </span>
+    </div>
+  </div>
+</div>
+<div [hidden]="!isLast">
+  <!--the end-->
+  <div class="container-fluid body-div">
+    <div class="volume-div">
+      <i class="fas fa-volume-up"></i>
+      <i style="display: none" class="fas fa-volume-mute"></i>
+    </div>
+    <img class="dashboard-background" src="{{mainBackground}}">
+    <div style="text-align: center">
+      <img style="width: 405px; margin-top: 25px;" src="{{cloud}}">
+    </div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center;color: darkred; font-size: 30px;">
+      <div><b><span>Doğru Sayısı:&nbsp;</span><span>{{correctCount}}</span></b></div>
+      <div><b><span>Yanlış Sayısı:&nbsp;</span><span>{{wrongCount}}</span></b></div>
+    </div>
+    <div class="start-background-div col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div (click)="goHome()" class="bg-12">
+        <label class="start-label">Ana Sayfaya Dön&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+          class="fas fa-sign-out-alt"></i></label>
+      </div>
+    </div>
+  </div>
+
+</div>
