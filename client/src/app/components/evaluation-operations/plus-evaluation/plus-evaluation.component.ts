@@ -82,15 +82,7 @@ export class PlusEvaluationComponent implements OnInit {
     this.currentQuestion++;
     if (this.currentQuestion > 10) {
       this.isLast = true;
-      let res = 0;
-      let i;
-      for (i = 0; i < this.resultArray.length; i++) {
-        if (this.resultArray[i] === true) {
-          res++;
-        }
-      }
-      this.correctCount = res;
-      this.wrongCount = this.plusOperations.length - res;
+      this.calculateResult();
     }
     if (this.isLast !== true) {
       this.resetQuestion();
@@ -109,6 +101,18 @@ export class PlusEvaluationComponent implements OnInit {
     this.isLast = false;
     this.createAnswers();
     this.resetSelectedAnswer();
+  }
+
+  calculateResult() {
+    let res = 0;
+    let i;
+    for (i = 0; i < this.resultArray.length; i++) {
+      if (this.resultArray[i] === true) {
+        res++;
+      }
+    }
+    this.correctCount = res;
+    this.wrongCount = this.plusOperations.length - res;
   }
 
   createFruits1() {
