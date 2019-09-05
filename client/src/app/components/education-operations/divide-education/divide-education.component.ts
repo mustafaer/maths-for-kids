@@ -28,6 +28,7 @@ export class DivideEducationComponent implements OnInit {
   sound;
   appleSound;
   isSoundUp = false;
+  toggleState = false;
 
   constructor(private router: Router) {
     this.isSoundUp = JSON.parse(sessionStorage.getItem('soundState'));
@@ -40,7 +41,8 @@ export class DivideEducationComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    // @ts-ignore
+    this.toggleState = (window.fullScreen) || (window.innerWidth == screen.width && window.innerHeight == screen.height);
     this.appleResult = this.appleCount / this.appleCount2;
     this.createPlates();
     this.sortApples();
@@ -189,5 +191,40 @@ export class DivideEducationComponent implements OnInit {
     this.appleSound.style.display = 'none';
     document.body.appendChild(this.appleSound);
     this.appleSound.play();
+  }
+
+  toggleFullScreen() {
+    this.toggleState = true;
+    // @ts-ignore
+    if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+      // @ts-ignore
+      if (document.documentElement.requestFullScreen) {
+        // @ts-ignore
+        document.documentElement.requestFullScreen();
+        // @ts-ignore
+      } else if (document.documentElement.mozRequestFullScreen) {
+        // @ts-ignore
+        document.documentElement.mozRequestFullScreen();
+        // @ts-ignore
+      } else if (document.documentElement.webkitRequestFullScreen) {
+        // @ts-ignore
+        document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+      }
+    } else {
+      this.toggleState = false;
+      // @ts-ignore
+      if (document.cancelFullScreen) {
+        // @ts-ignore
+        document.cancelFullScreen();
+        // @ts-ignore
+      } else if (document.mozCancelFullScreen) {
+        // @ts-ignore
+        document.mozCancelFullScreen();
+        // @ts-ignore
+      } else if (document.webkitCancelFullScreen) {
+        // @ts-ignore
+        document.webkitCancelFullScreen();
+      }
+    }
   }
 }

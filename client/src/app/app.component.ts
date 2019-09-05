@@ -21,6 +21,7 @@ export class AppComponent {
     this.sound.src = src;
     this.sound.setAttribute('preload', 'auto');
     this.sound.setAttribute('controls', 'none');
+    this.sound.setAttribute('controlsList', 'nodownload');
     this.sound.style.display = 'none';
     document.body.appendChild(this.sound);
   }

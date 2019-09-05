@@ -4,6 +4,9 @@
       <i [hidden]="!isSoundUp" (click)="stopSound()" class="fas fa-volume-up"></i>
       <i [hidden]="isSoundUp" (click)="startSound()" class="fas fa-volume-mute"></i>
       <br>
+      <i (click)="toggleFullScreen()" style="color: yellow; cursor: pointer;"
+         [ngClass]="toggleState ? 'fas fa-compress-arrows-alt':'fas fa-arrows-alt'"></i>
+      <br>
       <i (click)="resetQuestion()" style="color: darkred; cursor: pointer;" title="Sıfırla"
          class="fas fa-trash-restore"></i>
       <br>

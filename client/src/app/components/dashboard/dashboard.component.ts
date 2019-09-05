@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   pageState: number;
   sound;
   isSoundUp = false;
+  toggleState = false;
 
   constructor(private router: Router) {
     if (JSON.parse(sessionStorage.getItem('soundState')) == null) {
@@ -27,6 +28,8 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    // @ts-ignore
+    this.toggleState = (window.fullScreen) || (window.innerWidth == screen.width && window.innerHeight == screen.height);
     this.sound = document.getElementsByTagName('audio');
     this.goHome();
     if (this.isSoundUp) {
@@ -52,6 +55,41 @@ export class DashboardComponent implements OnInit {
     *  1 -> Select Session Stype
     *  2 -> Select Education Operation Type
     * 3 -> Select Evaluation Operation Type*/
+  }
+
+  toggleFullScreen() {
+    this.toggleState = true;
+    // @ts-ignore
+    if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+      // @ts-ignore
+      if (document.documentElement.requestFullScreen) {
+        // @ts-ignore
+        document.documentElement.requestFullScreen();
+        // @ts-ignore
+      } else if (document.documentElement.mozRequestFullScreen) {
+        // @ts-ignore
+        document.documentElement.mozRequestFullScreen();
+        // @ts-ignore
+      } else if (document.documentElement.webkitRequestFullScreen) {
+        // @ts-ignore
+        document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+      }
+    } else {
+      this.toggleState = false;
+      // @ts-ignore
+      if (document.cancelFullScreen) {
+        // @ts-ignore
+        document.cancelFullScreen();
+        // @ts-ignore
+      } else if (document.mozCancelFullScreen) {
+        // @ts-ignore
+        document.mozCancelFullScreen();
+        // @ts-ignore
+      } else if (document.webkitCancelFullScreen) {
+        // @ts-ignore
+        document.webkitCancelFullScreen();
+      }
+    }
   }
 
   goSessions() {

@@ -3,16 +3,20 @@
     <i [hidden]="!isSoundUp" (click)="stopSound()" class="fas fa-volume-up"></i>
     <i [hidden]="isSoundUp" (click)="startSound()" class="fas fa-volume-mute"></i>
     <br>
-    <i [hidden]="pageState === 0" (click)="goHome()" style="color: orangered; cursor: pointer;" title="Ana Sayfa" class="fas fa-sign-out-alt"></i>
+    <i (click)="toggleFullScreen()" style="color: yellow; cursor: pointer;"
+       [ngClass]="toggleState ? 'fas fa-compress-arrows-alt':'fas fa-arrows-alt'"></i>
+    <br>
+    <i [hidden]="pageState === 0" (click)="goHome()" style="color: orangered; cursor: pointer;" title="Ana Sayfa"
+       class="fas fa-sign-out-alt"></i>
   </div>
   <img class="dashboard-background" src="{{mainBackground}}">
   <div style="text-align: center">
     <label class="main-header"><b>DÖRT İŞLEM ÖĞRENİYORUM</b></label><br>
-    <label  [hidden]="pageState !== 2"  class="main-header-info"><b>(Öğretim)</b></label>
-    <label  [hidden]="pageState !== 3"  class="main-header-info"><b>(Değerlendirme)</b></label>
+    <label [hidden]="pageState !== 2" class="main-header-info"><b>(Öğretim)</b></label>
+    <label [hidden]="pageState !== 3" class="main-header-info"><b>(Değerlendirme)</b></label>
   </div>
   <div class="start-background-div col-xl-12 col-lg-12 col-md-12 col-sm-12">
-    <div [hidden]="pageState !== 0" (click)="goSessions()"  class="bg-12">
+    <div [hidden]="pageState !== 0" (click)="goSessions()" class="bg-12">
       <label class="start-label">HADİ BAŞLAYALIM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-caret-right"></i></label>
     </div>
     <div [hidden]="pageState !== 1" class="education-session-div ">
