@@ -20,9 +20,14 @@ export class AppComponent {
 
     this.sound.src = src;
     this.sound.setAttribute('preload', 'auto');
-    this.sound.setAttribute('controls', 'none');
+    this.sound.setAttribute('controls', 'loop');
     this.sound.setAttribute('controlsList', 'nodownload');
-    this.sound.style.display = 'none';
+    this.sound.style.display = 'block';
     document.body.appendChild(this.sound);
+    this.sound.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    }, false);
+    this.sound.play();
   }
 }
