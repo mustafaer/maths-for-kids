@@ -13,7 +13,7 @@ import {MultiplyEvaluationComponent} from './components/evaluation-operations/mu
 import {DivideEvaluationComponent} from './components/evaluation-operations/divide-evaluation/divide-evaluation.component';
 
 const routes: Routes = [{
-  path: '', component: LoginLayoutComponent,
+  path: '', component: DashboardComponent,
   children: []
 },
   {

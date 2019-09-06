@@ -8,12 +8,14 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'client';
   sound;
+  isSoundUp = false;
 
   constructor() {
     this.createSoundElement();
   }
 
   createSoundElement() {
+    this.isSoundUp = JSON.parse(sessionStorage.getItem('soundState'));
     this.sound = document.createElement('audio');
 
     const src = '../assets/sounds/background_music.mp3';
@@ -22,9 +24,19 @@ export class AppComponent {
     this.sound.setAttribute('preload', 'auto');
     this.sound.setAttribute('controls', 'loop');
     this.sound.setAttribute('controlsList', 'nodownload');
-    this.sound.style.display = 'block';
+    this.sound.style.display = 'none';
     document.body.appendChild(this.sound);
-    this.sound.addEventListener('ended', function() {
+    this.soundStartCheck();
+  }
+
+  soundStartCheck() {
+    if (this.isSoundUp) {
+      this.soundRepeat();
+    }
+  }
+
+  soundRepeat() {
+    this.sound.addEventListener('ended', function () {
       this.currentTime = 0;
       this.play();
     }, false);
