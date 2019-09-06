@@ -211,7 +211,7 @@ export class DivideEvaluationComponent implements OnInit {
     this.toggleState = true;
     // @ts-ignore
     // tslint:disable-next-line:max-line-length
-    if ((document.fullScreenElement && document.fullScreenElement !== null) || document.webkitFullscreenElement || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if ((document.fullScreenElement && document.fullScreenElement !== null) || !document.webkitFullscreenElement || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
       // @ts-ignore
       if (document.documentElement.requestFullScreen) {
         // @ts-ignore
