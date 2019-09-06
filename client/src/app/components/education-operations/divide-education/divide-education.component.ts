@@ -179,7 +179,8 @@ export class DivideEducationComponent implements OnInit {
   toggleFullScreen() {
     this.toggleState = true;
     // @ts-ignore
-    if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    // tslint:disable-next-line:max-line-length
+    if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
       // @ts-ignore
       if (document.documentElement.requestFullScreen) {
         // @ts-ignore
