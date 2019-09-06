@@ -48,10 +48,6 @@ export class MultiplyEducationComponent implements OnInit {
     if (this.isSoundUp) {
       this.startSound();
     }
-    // @ts-ignore
-    $(document).on('mousedown', '.apple', (event) => {
-      this.startAppleSound();
-    });
   }
 
   plt(id) {
@@ -181,19 +177,6 @@ export class MultiplyEducationComponent implements OnInit {
     this.sound[0].play();
     this.isSoundUp = true;
     sessionStorage.setItem('soundState', 'true');
-  }
-
-  startAppleSound() {
-    this.appleSound = document.createElement('audio');
-
-    const src = '../../../../assets/sounds/button-21.mp3';
-
-    this.appleSound.src = src;
-    this.appleSound.setAttribute('preload', 'auto');
-    this.appleSound.setAttribute('controls', 'none');
-    this.appleSound.style.display = 'none';
-    document.body.appendChild(this.appleSound);
-    this.appleSound.play();
   }
 
   toggleFullScreen() {
